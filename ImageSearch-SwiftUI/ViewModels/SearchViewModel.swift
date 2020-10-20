@@ -22,7 +22,7 @@ final class SearchViewModel: ObservableObject {
     private var searchModel = SearchModel()
     
     private func bind() {
-        searchModel.searchPublisher(inputPublisher: _inputPublisher.projectedValue.eraseToAnyPublisher())
+        searchModel.searchPublisher(inputPublisher: $inputPublisher.eraseToAnyPublisher())
             .map { resultData -> [CollectionViewData] in
                 resultData
                     .documents

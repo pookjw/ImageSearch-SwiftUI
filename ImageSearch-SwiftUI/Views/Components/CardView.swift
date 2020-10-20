@@ -1,5 +1,5 @@
 //
-//  ClassicCardView.swift
+//  CardView.swift
 //  ImageSearch-SwiftUI
 //
 //  Created by Jinwoo Kim on 10/19/20.
@@ -8,7 +8,7 @@
 import SwiftUI
 import struct Kingfisher.KFImage
 
-struct ClassicCardView: View {
+struct CardView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var gradient: CGFloat
     var topImage: KFImage
@@ -37,7 +37,7 @@ struct ClassicCardView: View {
                 startPoint: .top,
                 endPoint: .init(x: 0.5, y: gradient * 2)
             )
-        case .light:
+        default:
             return LinearGradient(
                 gradient: Gradient(colors: [.white, .black]),
                 startPoint: .top,

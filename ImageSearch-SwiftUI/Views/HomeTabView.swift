@@ -21,12 +21,6 @@ struct HomeTabView: View {
                     Image(systemName: "star")
                     Text("Favorites")
                 }
-            
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
-                }
         }
     }
 }

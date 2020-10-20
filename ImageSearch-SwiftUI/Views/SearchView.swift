@@ -26,7 +26,7 @@ struct SearchView: View {
         NavigationView {
             CollectionView(eachWidth: 180, dataSource: self.$dataSource) { (data, idx) -> AnyView in
                 AnyView(
-                    ClassicCardView(
+                    CardView(
                         gradient: 5,
                         topImage: data.image,
                         bottomText: data.title

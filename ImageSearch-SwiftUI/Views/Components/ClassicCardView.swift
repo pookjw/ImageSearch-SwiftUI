@@ -23,7 +23,7 @@ struct ClassicCardView: View {
             
             
             bottomText
-                .font(.system(size: 30))
+                .font(.system(size: 20))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(getGradientView())
         }

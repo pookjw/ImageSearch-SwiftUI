@@ -24,7 +24,7 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            CollectionView(eachWidth: 170, dataSource: self.$dataSource) { (data, idx) -> AnyView in
+            CollectionView(eachWidth: 180, dataSource: self.$dataSource) { (data, idx) -> AnyView in
                 AnyView(
                     ClassicCardView(
                         gradient: 5,

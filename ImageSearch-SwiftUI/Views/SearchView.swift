@@ -9,9 +9,9 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
-    @ObservedObject var viewModel: SearchViewModel
     @State var title: String = "Search"
     @State var dataSource: [CollectionViewData] = []
+    @ObservedObject var viewModel: SearchViewModel
     @ObservedObject var searchBar: SearchBar
     
     init() {

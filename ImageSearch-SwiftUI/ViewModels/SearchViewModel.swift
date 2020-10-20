@@ -11,14 +11,12 @@ import struct Kingfisher.KFImage
 
 final class SearchViewModel: ObservableObject {
     @Published var inputPublisher: String = ""
-    
     @Published var dataSource: [CollectionViewData] = []
     
     init() {
         self.bind()
     }
     
-    private var subscriotions = Set<AnyCancellable>()
     private var searchModel = SearchModel()
     
     private func bind() {

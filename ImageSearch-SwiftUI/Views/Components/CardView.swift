@@ -19,7 +19,7 @@ struct CardView: View {
             topImage
                 .resizable()
                 .aspectRatio(1, contentMode: .fill)
-                .border(Color.gray, width: 0.5)
+                .border(Color.gray, width: 0.3)
             
             
             bottomText

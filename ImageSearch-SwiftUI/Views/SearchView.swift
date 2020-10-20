@@ -19,7 +19,7 @@ struct SearchView: View {
         self.viewModel = .init()
         
         self.searchBar.textPublisher
-            .assign(to: &self.viewModel.$inputPublisher)
+            .assign(to: &viewModel.$textPublisher)
     }
     
     var body: some View {
@@ -35,14 +35,25 @@ struct SearchView: View {
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.gray.opacity(0.7), lineWidth: 0.5)
+                            .stroke(Color.gray.opacity(0.7), lineWidth: 0.3)
                     )
                     .padding([.leading, .trailing, .bottom], 15)
-                    .shadow(radius: 10, x: 0, y: 10)
+                    .shadow(radius: 15, x: 0, y: 15)
                 )
             }
             .add(searchBar)
-            .navigationTitle(title)
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                                        viewModel.pagePublisher += 1
+                                    }) {
+                                        HStack {
+                                            Image(systemName: "arrowshape.turn.up.right")
+                                            Text("Load Next")
+                                        }
+                                    }.disabled(!viewModel.enabledNextPage)
+            )
+            .navigationTitle(viewModel.textPublisher)
+            .navigationBarTitleDisplayMode(.large)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onReceive(viewModel.$dataSource, perform: { sources in
@@ -51,8 +62,8 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView()
+//    }
+//}

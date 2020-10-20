@@ -10,7 +10,9 @@ import Combine
 import struct Kingfisher.KFImage
 
 final class SearchViewModel: ObservableObject {
-    @Published var inputPublisher: String = ""
+    @Published var textPublisher: String = ""
+    @Published var pagePublisher: Int = 1
+    @Published var enabledNextPage: Bool = false
     @Published var dataSource: [CollectionViewData] = []
     
     init() {
@@ -20,19 +22,43 @@ final class SearchViewModel: ObservableObject {
     private var searchModel = SearchModel()
     
     private func bind() {
-        searchModel.searchPublisher(inputPublisher: $inputPublisher.eraseToAnyPublisher())
-            .map { resultData -> [CollectionViewData] in
-                resultData
-                    .documents
-                    .map { document -> CollectionViewData in
-                        .init(
-                            title: Text(document.display_sitename),
-                            image: KFImage(URL(string: document.thumbnail_url)!)
-                        )
-                    }
+        var willResetDataSource: Bool = false
+        
+        let inputPublisher = Publishers.CombineLatest($textPublisher, $pagePublisher)
+            .eraseToAnyPublisher()
+            .filter { $0.0 != "" && $0.1 > 0 }
+            .removeDuplicates { [weak self] old, new in
+                guard let self = self else { return true }
+                guard old != new else { return true }
+                
+                if old.0 != new.0 {
+                    willResetDataSource = true
+                    self.pagePublisher = 1
+                } else {
+                    willResetDataSource = false
+                }
+                return false
             }
-            .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
-            .assign(to: &self.$dataSource)
+            .eraseToAnyPublisher()
+        
+        let resultPublisher = searchModel.searchPublisher(inputPublisher)
+            .replaceError(with: (enabledNextPage, dataSource))
+            .filter { _, data in !data.isEmpty }
+            
+        resultPublisher
+            .map { [weak self] (enabled, data) -> [CollectionViewData] in
+                guard let self = self else { return data }
+                self.enabledNextPage = enabled
+                if !willResetDataSource {
+                    let appendedData = self.dataSource + data
+                    return appendedData
+                }
+                return data
+            }
+            .assign(to: &$dataSource)
+        
+//        resultPublisher
+//            .map(\.0)
+//            .assign(to: &$enabledNextPage)
     }
 }

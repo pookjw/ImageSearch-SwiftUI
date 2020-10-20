@@ -5,8 +5,9 @@
 //  Created by Jinwoo Kim on 10/20/20.
 //
 
-import Foundation
+import SwiftUI
 import Combine
+import struct Kingfisher.KFImage
 
 final class SearchModel {
     private var apiKey: String = "dff576e28ce434796a2329a6a2366d76"
@@ -17,11 +18,9 @@ final class SearchModel {
         case json
     }
     
-    func searchPublisher(inputPublisher: AnyPublisher<String, Never>) -> AnyPublisher<ResultData, SearchModel.Error> {
+    func searchPublisher(_ inputPublisher: AnyPublisher<(String, Int), Never>) -> AnyPublisher<(Bool, [CollectionViewData]), Error> {
         inputPublisher
-            .filter { $0 != "" }
-            .flatMap { [weak self] (text: String) -> AnyPublisher<ResultData, SearchModel.Error> in
-                
+            .flatMap { [weak self] (text: String, page: Int) -> AnyPublisher<ResultData, SearchModel.Error> in
                 guard let self = self else {
                     return Fail(error: SearchModel.Error.network)
                         .eraseToAnyPublisher()
@@ -34,7 +33,7 @@ final class SearchModel {
                 
                 components.queryItems = [
                     URLQueryItem(name: "query", value: text),
-                    URLQueryItem(name: "page", value: "1")
+                    URLQueryItem(name: "page", value: "\(page)")
                 ]
                 
                 guard let finalURL = components.url else {
@@ -54,8 +53,25 @@ final class SearchModel {
                     .mapError { _ in return Error.json }
                     .eraseToAnyPublisher()
             }
+            .map { resultData -> (Bool, [CollectionViewData]) in
+                let data = resultData
+                    .documents
+                    .map { document -> CollectionViewData in
+                        .init(
+                            title: Text(document.display_sitename == "" ? self.randomEmoji() : document.display_sitename),
+                            image: KFImage(URL(string: document.thumbnail_url)!)
+                        )
+                    }
+                return (!resultData.meta.is_end, data)
+            }
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
-    
+    private func randomEmoji() -> String{
+        let emojiStart = 0x1F601
+        let ascii = emojiStart + Int(arc4random_uniform(UInt32(35)))
+        let emoji = UnicodeScalar(ascii)?.description
+        return emoji ?? "😱"
+    }
 }

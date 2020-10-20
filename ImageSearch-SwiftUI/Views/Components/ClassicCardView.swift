@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import struct Kingfisher.KFImage
 
 struct ClassicCardView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var gradient: CGFloat
-    var topImage: Image
+    var topImage: KFImage
     var bottomText: Text
     
     var body: some View {
@@ -18,6 +19,7 @@ struct ClassicCardView: View {
             topImage
                 .resizable()
                 .aspectRatio(1, contentMode: .fill)
+                .border(Color.gray, width: 0.5)
             
             
             bottomText
@@ -45,26 +47,26 @@ struct ClassicCardView: View {
     }
 }
 
-struct ClassicCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ClassicCardView(
-                gradient: 3.5,
-                topImage: Image("bear"),
-                bottomText: Text("Bear")
-            )
-                .environment(\.colorScheme, .light)
-                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
-                .preferredColorScheme(.light)
-            
-            ClassicCardView(
-                gradient: 3.5,
-                topImage: Image("bear"),
-                bottomText: Text("Bear")
-            )
-                .environment(\.colorScheme, .dark)
-                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
-                .preferredColorScheme(.dark)
-        }
-    }
-}
+//struct ClassicCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ClassicCardView(
+//                gradient: 3.5,
+//                topImage: Image("bear"),
+//                bottomText: Text("Bear")
+//            )
+//                .environment(\.colorScheme, .light)
+//                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
+//                .preferredColorScheme(.light)
+//
+//            ClassicCardView(
+//                gradient: 3.5,
+//                topImage: Image("bear"),
+//                bottomText: Text("Bear")
+//            )
+//                .environment(\.colorScheme, .dark)
+//                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
+//                .preferredColorScheme(.dark)
+//        }
+//    }
+//}

@@ -8,32 +8,29 @@
 import SwiftUI
 
 struct CollectionView<Content, T>: View where Content: View {
-    var eachWidth: CGFloat
-    var dataSource: [T]
-    let content: (T) -> Content
+    @State var eachWidth: CGFloat = 0
+    @Binding var dataSource: [T]
+    let content: (T, Int) -> Content
     
-    init(
-        eachWidth: CGFloat,
-        dataSource: [T],
-        @ViewBuilder content: @escaping (T) -> Content
-    ) {
-        self.eachWidth = eachWidth
-        self.dataSource = dataSource
-        self.content = content
-    }
-    
-    // Swift 컴파일러 버그를 임시로 우회하는 코드를 넣어서 코드가 깔끔하지 않음
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) -> AnyView in
             let (numberOfColumns, numberOfRows) = getIndexCount(geoWidth: geometry.size.width)
             
-            AnyView(
+            return AnyView(
                 ScrollView {
-                    ForEach(0..<numberOfRows) { row in
-                        HStack {
-                            ForEach(0..<numberOfColumns) { column in
-                                if let data = 
+                    VStack {
+                        ForEach(0..<numberOfRows, id: \.self) { row in
+                            HStack {
+                                ForEach(0..<numberOfColumns, id: \.self) { column in
+                                    let idx = row * numberOfColumns + column
+                                    if let data = elementFor(idx: idx) {
+                                        content(data, idx)
+                                    } else {
+                                        EmptyView().frame(width: 0, height: 0)
+                                    }
+                                }
                             }
+                            .frame(maxWidth: .infinity)
                         }
                     }
                 }
@@ -42,14 +39,18 @@ struct CollectionView<Content, T>: View where Content: View {
     }
     
     private func getIndexCount(geoWidth: CGFloat) -> (numberOfColumns: Int, numberOfRows: Int) {
-        let column: Int = Int(Float(geoWidth) / Float(eachWidth))
-        let row: Int = (dataSource.count / column) + (dataSource.count % column == 0 ? 0 : 1)
-        return (column, row)
+        guard geoWidth > 0 else { return (0, 0) }
+        let numberOfColumns: Int = Int(Float(geoWidth) / Float(eachWidth))
+        
+        guard numberOfColumns > 0 else { return (0, 0) }
+        let numberOfRows: Int = (dataSource.count / numberOfColumns) + (dataSource.count % numberOfColumns == 0 ? 0 : 1)
+        
+        return (numberOfColumns, numberOfRows)
     }
     
-    private func elementFor(row: Int, column: Int) -> T? {
-        guard dataSource.count > row * column else { return nil }
-        return dataSource[row * column]
+    private func elementFor(idx: Int) -> T? {
+        guard dataSource.count > idx else { return nil }
+        return dataSource[idx]
     }
 }
 

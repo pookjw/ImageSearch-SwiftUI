@@ -48,6 +48,7 @@ final class SearchModel {
                 return URLSession
                     .shared
                     .dataTaskPublisher(for: request)
+                    .eraseToAnyPublisher()
                     .map(\.data)
                     .decode(type: ResultData.self, decoder: JSONDecoder())
                     .mapError { _ in return Error.json }
@@ -64,7 +65,6 @@ final class SearchModel {
                     }
                 return (!resultData.meta.is_end, data)
             }
-            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     

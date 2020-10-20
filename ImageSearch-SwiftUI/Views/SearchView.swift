@@ -38,7 +38,7 @@ struct SearchView: View {
                             .stroke(Color.gray.opacity(0.7), lineWidth: 0.3)
                     )
                     .padding([.leading, .trailing, .bottom], 15)
-                    .shadow(radius: 15, x: 0, y: 15)
+                    .shadow(radius: 10, x: 0, y: 15)
                 )
             }
             .add(searchBar)

@@ -46,6 +46,7 @@ final class SearchViewModel: ObservableObject {
             .filter { _, data in !data.isEmpty }
             
         resultPublisher
+            .receive(on: DispatchQueue.main)
             .map { [weak self] (enabled, data) -> [CollectionViewData] in
                 guard let self = self else { return data }
                 self.enabledNextPage = enabled

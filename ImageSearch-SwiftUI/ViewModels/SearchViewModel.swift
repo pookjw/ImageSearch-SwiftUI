@@ -13,7 +13,7 @@ final class SearchViewModel: ObservableObject {
     @Published var textPublisher: String = ""
     @Published var pagePublisher: Int = 1
     @Published var enabledNextPage: Bool = false
-    @Published var dataSource: [CollectionViewData] = []
+    @Published var dataSource: [ResultData] = []
     
     init() {
         self.bind()
@@ -47,7 +47,7 @@ final class SearchViewModel: ObservableObject {
             
         resultPublisher
             .receive(on: DispatchQueue.main)
-            .map { [weak self] (enabled, data) -> [CollectionViewData] in
+            .map { [weak self] (enabled, data) -> [ResultData] in
                 guard let self = self else { return data }
                 self.enabledNextPage = enabled
                 if !willResetDataSource {

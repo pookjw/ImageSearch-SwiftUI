@@ -7,23 +7,39 @@
 
 import Foundation
 
-struct ResultData: Decodable {
-    let meta: Meta
-    let documents: [Documents]
+final class ResultData: Codable {
+    let title: String
+    let thumbnailImage: URL?
+    let mainImage: URL?
+    let docURL: URL?
     
-    struct Meta: Decodable {
-        let total_count: Int
-        let pageable_count: Int
-        let is_end: Bool
+    init(
+        title: String,
+        thumbnailImage: URL?,
+        mainImage: URL?,
+        docURL: URL?
+    ) {
+        self.title = title
+        self.thumbnailImage = thumbnailImage
+        self.mainImage = mainImage
+        self.docURL = docURL
     }
     
-    struct Documents: Decodable {
-        let collection: String
-        let thumbnail_url: String
-        let image_url: String
-        let width: Int
-        let height: Int
-        let display_sitename: String
-        let doc_url: String
+    static func getSampleData() -> Self {
+        .init(
+            title: "Smoothy",
+            thumbnailImage: URL(string: "https://lh3.googleusercontent.com/C1D8XmEiJFLaWHvoup34B9srKZ71QRhkow3ovuwYvRnzH647r7JO3eJyynS1yr2Lmg"),
+            mainImage: URL(string: "https://lh3.googleusercontent.com/C1D8XmEiJFLaWHvoup34B9srKZ71QRhkow3ovuwYvRnzH647r7JO3eJyynS1yr2Lmg"),
+            docURL: URL(string: "https://apps.apple.com/us/app/smoothy-video-chat-for-groups/id1325000338")
+        )
+    }
+}
+
+extension ResultData: Equatable {
+    static func ==(lhs: ResultData, rhs: ResultData) -> Bool {
+        return lhs.title == rhs.title &&
+            lhs.thumbnailImage == rhs.thumbnailImage &&
+            lhs.mainImage == rhs.mainImage &&
+            lhs.docURL == rhs.docURL
     }
 }

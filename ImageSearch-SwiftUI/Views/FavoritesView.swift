@@ -6,10 +6,30 @@
 //
 
 import SwiftUI
+import Combine
+import struct Kingfisher.KFImage
 
 struct FavoritesView: View {
+    @ObservedObject var viewModel: FavoritesViewModel
+    
+    init() {
+        self.viewModel = .init()
+    }
+    
     var body: some View {
-        Text("Hello")
+        NavigationView {
+            CollectionView(eachWidth: 180, dataSource: $viewModel.dataSource) { (data, idx) in
+                    NavigationLink(
+                        destination: DetailedView(viewModel: .init(data: data))
+                    ) {
+                        CardView(data)
+                        .applyPresetModifier()
+                    }
+            }
+            .navigationTitle(Text("Favorites"))
+            .navigationBarTitleDisplayMode(.large)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

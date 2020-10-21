@@ -1,5 +1,5 @@
 //
-//  HomeTabView.swift
+//  MainView.swift
 //  ImageSearch-SwiftUI
 //
 //  Created by Jinwoo Kim on 10/19/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeTabView: View {
+struct MainView: View {
     var body: some View {
         TabView {
             SearchView()

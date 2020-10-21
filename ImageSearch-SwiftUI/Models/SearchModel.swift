@@ -5,9 +5,8 @@
 //  Created by Jinwoo Kim on 10/20/20.
 //
 
-import SwiftUI
+import Foundation
 import Combine
-import struct Kingfisher.KFImage
 
 final class SearchModel {
     private var apiKey: String = "dff576e28ce434796a2329a6a2366d76"
@@ -18,9 +17,9 @@ final class SearchModel {
         case json
     }
     
-    func searchPublisher(_ inputPublisher: AnyPublisher<(String, Int), Never>) -> AnyPublisher<(Bool, [CollectionViewData]), Error> {
+    func searchPublisher(_ inputPublisher: AnyPublisher<(String, Int), Never>) -> AnyPublisher<(Bool, [ResultData]), Error> {
         inputPublisher
-            .flatMap { [weak self] (text: String, page: Int) -> AnyPublisher<ResultData, SearchModel.Error> in
+            .flatMap { [weak self] (text: String, page: Int) -> AnyPublisher<KakaoSearchData, SearchModel.Error> in
                 guard let self = self else {
                     return Fail(error: SearchModel.Error.network)
                         .eraseToAnyPublisher()
@@ -50,18 +49,21 @@ final class SearchModel {
                     .dataTaskPublisher(for: request)
                     .eraseToAnyPublisher()
                     .map(\.data)
-                    .decode(type: ResultData.self, decoder: JSONDecoder())
+                    .decode(type: KakaoSearchData.self, decoder: JSONDecoder())
                     .mapError { _ in return Error.json }
                     .eraseToAnyPublisher()
             }
-            .map { resultData -> (Bool, [CollectionViewData]) in
+            .map { resultData -> (Bool, [ResultData]) in
                 let data = resultData
                     .documents
-                    .map { document -> CollectionViewData in
-                        .init(
-                            title: Text(document.display_sitename == "" ? self.randomEmoji() : document.display_sitename),
-                            image: KFImage(URL(string: document.thumbnail_url)!)
+                    .map { document -> ResultData in
+                        let data = ResultData(
+                            title: document.display_sitename == "" ? self.randomEmoji() : document.display_sitename,
+                            thumbnailImage: URL(string: document.thumbnail_url),
+                            mainImage: URL(string: document.image_url),
+                            docURL: URL(string: document.doc_url)
                         )
+                        return FavoritesModel.shared.getFavoritedReference(data) ?? data
                     }
                 return (!resultData.meta.is_end, data)
             }

@@ -7,10 +7,9 @@
 
 import SwiftUI
 import Combine
+import struct Kingfisher.KFImage
 
 struct SearchView: View {
-    @State var title: String = "Search"
-    @State var dataSource: [CollectionViewData] = []
     @ObservedObject var viewModel: SearchViewModel
     @ObservedObject var searchBar: SearchBar
     
@@ -24,41 +23,31 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            CollectionView(eachWidth: 180, dataSource: self.$dataSource) { (data, idx) -> AnyView in
-                AnyView(
-                    CardView(
-                        gradient: 5,
-                        topImage: data.image,
-                        bottomText: data.title
-                    )
-                    .frame(width: 150, height: 200)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.gray.opacity(0.7), lineWidth: 0.3)
-                    )
-                    .padding([.leading, .trailing, .bottom], 15)
-                    .shadow(radius: 10, x: 0, y: 15)
-                )
+            CollectionView(eachWidth: 180, dataSource: $viewModel.dataSource) { (data, idx) in
+                    NavigationLink(
+                        destination: DetailedView(viewModel: .init(data: data))
+                    ) {
+                        CardView(data)
+                        .applyPresetModifier()
+                    }
             }
             .add(searchBar)
-            .navigationBarItems(trailing:
-                                    Button(action: {
-                                        viewModel.pagePublisher += 1
-                                    }) {
-                                        HStack {
-                                            Image(systemName: "arrowshape.turn.up.right")
-                                            Text("Load Next")
-                                        }
-                                    }.disabled(!viewModel.enabledNextPage)
-            )
+            .navigationBarItems(trailing: navigationBarButton)
             .navigationTitle(viewModel.textPublisher)
             .navigationBarTitleDisplayMode(.large)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onReceive(viewModel.$dataSource, perform: { sources in
-            self.dataSource = sources
-        })
+    }
+    
+    var navigationBarButton: some View {
+        Button(action: {
+            viewModel.pagePublisher += 1
+        }) {
+            HStack {
+                Image(systemName: "arrowshape.turn.up.right")
+                Text("Load Next")
+            }
+        }.disabled(!viewModel.enabledNextPage)
     }
 }
 

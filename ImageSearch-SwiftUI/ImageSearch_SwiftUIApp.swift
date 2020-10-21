@@ -11,7 +11,7 @@ import SwiftUI
 struct ImageSearch_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeTabView()
+            MainView()
                 .onAppear(perform: {
                     UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
                 })

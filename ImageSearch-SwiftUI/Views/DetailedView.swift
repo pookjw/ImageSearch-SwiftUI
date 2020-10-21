@@ -77,7 +77,7 @@ struct DetailedView: View {
     
     var photoAlert: Alert {
         Alert(
-            title: Text("Saved photo!"),
+            title: Text("Saved Photo!"),
             dismissButton: .default(Text("Dismiss"))
         )
     }

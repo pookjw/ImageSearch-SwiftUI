@@ -25,6 +25,10 @@ final class ResultData: Codable {
         self.docURL = docURL
     }
     
+    deinit {
+        print("deinit: ResultData")
+    }
+    
     static func getSampleData() -> Self {
         .init(
             title: "Smoothy",

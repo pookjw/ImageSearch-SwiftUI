@@ -22,12 +22,12 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             CollectionView(eachWidth: 180, dataSource: $viewModel.dataSource) { (data, idx) in
-                    NavigationLink(
-                        destination: DetailedView(data)
-                    ) {
-                        CardView(data)
+                NavigationLink(
+                    destination: DetailedView(data)
+                ) {
+                    CardView(data)
                         .applyPresetModifier()
-                    }
+                }
             }
             .add(searchBar)
             .navigationBarItems(trailing: loadNextButton)

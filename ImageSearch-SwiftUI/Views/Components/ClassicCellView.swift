@@ -39,13 +39,13 @@ struct ClassicCellView_Previews: PreviewProvider {
                 title: Text("Demo"),
                 description: Text("Hello World!")
             )
-                .previewLayout(.sizeThatFits)
+            .previewLayout(.sizeThatFits)
             
             ClassicCellView(
                 image: Image(systemName: "gearshape"),
                 title: Text("Demo")
             )
-                .previewLayout(.sizeThatFits)
+            .previewLayout(.sizeThatFits)
         }
     }
 }

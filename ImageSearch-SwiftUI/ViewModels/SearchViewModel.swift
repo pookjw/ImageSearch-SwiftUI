@@ -43,7 +43,7 @@ final class SearchViewModel: ObservableObject {
         let resultPublisher = searchModel.searchPublisher(inputPublisher)
             .replaceError(with: (enabledNextPage, dataSource))
             .filter { _, data in !data.isEmpty }
-            
+        
         resultPublisher
             .receive(on: DispatchQueue.main)
             .map { [weak self] (enabled, data) -> [ResultData] in
@@ -57,8 +57,8 @@ final class SearchViewModel: ObservableObject {
             }
             .assign(to: &$dataSource)
         
-//        resultPublisher
-//            .map(\.0)
-//            .assign(to: &$enabledNextPage)
+        //        resultPublisher
+        //            .map(\.0)
+        //            .assign(to: &$enabledNextPage)
     }
 }

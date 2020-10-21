@@ -41,7 +41,7 @@ struct SearchBarModifier: ViewModifier {
                 ViewControllerResolver { viewController in
                     viewController.navigationItem.searchController = self.searchBar.searchController
                 }
-                    .frame(width: 0, height: 0)
+                .frame(width: 0, height: 0)
             )
     }
 }
@@ -56,7 +56,7 @@ extension View {
 final class ViewControllerResolver: UIViewControllerRepresentable {
     
     let onResolve: (UIViewController) -> Void
-        
+    
     init(onResolve: @escaping (UIViewController) -> Void) {
         self.onResolve = onResolve
     }
@@ -80,7 +80,7 @@ class ParentResolverViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("Use init(onResolve:) to instantiate ParentResolverViewController.")
     }
-        
+    
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         

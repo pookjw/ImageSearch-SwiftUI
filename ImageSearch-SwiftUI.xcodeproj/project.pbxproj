@@ -216,6 +216,7 @@
 		F3308C71253D78AA00551A4C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F33EE44F254058BD00632A36 /* Bridging UIKit */,
 				F3308C7A253D78C000551A4C /* Components */,
 				F3308C72253D78BD00551A4C /* SearchView.swift */,
 				F3308C7B253D78CD00551A4C /* FavoritesView.swift */,
@@ -228,7 +229,6 @@
 		F3308C7A253D78C000551A4C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F33EE44F254058BD00632A36 /* Bridging_UIKit */,
 				F3308C93253D79EB00551A4C /* CardView.swift */,
 				F31EFE9D253D977B00C53147 /* CollectionView.swift */,
 				F33EE4452540545000632A36 /* ClassicCellView.swift */,
@@ -246,14 +246,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		F33EE44F254058BD00632A36 /* Bridging_UIKit */ = {
+		F33EE44F254058BD00632A36 /* Bridging UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				F39284B0253EA6440061C36F /* SearchBar.swift */,
 				F33EE450254058D200632A36 /* SafariView.swift */,
 				F3E8999E2540779F0087CB09 /* VisualEffectView.swift */,
 			);
-			path = Bridging_UIKit;
+			path = "Bridging UIKit";
 			sourceTree = "<group>";
 		};
 		F39284A7253E83870061C36F /* Models */ = {

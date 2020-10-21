@@ -5,10 +5,10 @@
 //  Created by Jinwoo Kim on 10/21/20.
 //
 
+/* https://stackoverflow.com/a/59448652 */
+
 import SwiftUI
 import SafariServices
-
-/* https://stackoverflow.com/a/59448652 */
 
 struct SafariView: UIViewControllerRepresentable {
     let url: URL

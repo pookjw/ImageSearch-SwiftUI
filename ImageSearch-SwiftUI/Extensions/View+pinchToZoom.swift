@@ -7,7 +7,6 @@
 
 /* https://stackoverflow.com/a/59878898 */
 
-import UIKit
 import SwiftUI
 
 class PinchZoomView: UIView {

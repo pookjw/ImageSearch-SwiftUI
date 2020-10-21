@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Combine
-import struct Kingfisher.KFImage
 
 struct SearchView: View {
     @ObservedObject var viewModel: SearchViewModel

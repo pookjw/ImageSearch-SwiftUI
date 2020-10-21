@@ -5,9 +5,8 @@
 //  Created by Jinwoo Kim on 10/19/20.
 //
 
-import SwiftUI
+import Foundation
 import Combine
-import struct Kingfisher.KFImage
 
 final class SearchViewModel: ObservableObject {
     @Published var textPublisher: String = ""

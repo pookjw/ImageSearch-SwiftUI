@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 struct CollectionView<Content, T>: View where Content: View {
     @State var eachWidth: CGFloat = 0

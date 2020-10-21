@@ -21,6 +21,7 @@ struct DetailedView: View {
             KFImage(viewModel.data.mainImage)
                 .resizable()
                 .scaledToFit()
+                .pinchToZoom()
             
             VStack {
                 Spacer()

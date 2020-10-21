@@ -35,6 +35,7 @@
 		F3E89997254074250087CB09 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E89996254074250087CB09 /* FavoritesViewModel.swift */; };
 		F3E8999F2540779F0087CB09 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8999E2540779F0087CB09 /* VisualEffectView.swift */; };
 		F3E899A4254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */; };
+		F3E899A9254080160087CB09 /* View+pinchToZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899A8254080160087CB09 /* View+pinchToZoom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		F3E89996254074250087CB09 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		F3E8999E2540779F0087CB09 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+UIBlurEffectStyle.swift"; sourceTree = "<group>"; };
+		F3E899A8254080160087CB09 /* View+pinchToZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+pinchToZoom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				F33EE44A2540571500632A36 /* Text+OptionalString.swift */,
 				F33EE46C25406C4600632A36 /* UserDefaults+Objects.swift */,
 				F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */,
+				F3E899A8254080160087CB09 /* View+pinchToZoom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			files = (
 				F39284C4253EB0400061C36F /* SearchModel.swift in Sources */,
 				F3308C9A253D7A2600551A4C /* SearchViewModel.swift in Sources */,
+				F3E899A9254080160087CB09 /* View+pinchToZoom.swift in Sources */,
 				F39284CC253EC1530061C36F /* KakaoSearchData.swift in Sources */,
 				F39284B6253EA7560061C36F /* ResultData.swift in Sources */,
 				F3308C94253D79EB00551A4C /* CardView.swift in Sources */,

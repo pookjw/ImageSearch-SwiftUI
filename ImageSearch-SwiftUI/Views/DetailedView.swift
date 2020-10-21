@@ -40,8 +40,7 @@ struct DetailedView: View {
         }
         .navigationTitle(viewModel.data.title)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: favoriteButton)
-        .navigationBarItems(trailing: savePhotoButton)
+        .navigationBarItems(trailing: navBarTrailingItems)
         .sheet(isPresented: $viewModel.showSafari, content: { () -> AnyView in
             guard let url = viewModel.data.docURL else { return AnyView(EmptyView()) }
             return AnyView(SafariView(url: url))
@@ -65,6 +64,14 @@ struct DetailedView: View {
             viewModel.savePhoto()
         }) {
             Image(systemName: "square.and.arrow.down")
+        }
+    }
+    
+    var navBarTrailingItems: some View {
+        HStack {
+            savePhotoButton
+                .padding()
+            favoriteButton
         }
     }
     

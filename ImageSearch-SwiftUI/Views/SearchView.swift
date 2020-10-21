@@ -32,14 +32,14 @@ struct SearchView: View {
                     }
             }
             .add(searchBar)
-            .navigationBarItems(trailing: navigationBarButton)
+            .navigationBarItems(trailing: loadNextButton)
             .navigationTitle(viewModel.textPublisher)
             .navigationBarTitleDisplayMode(.large)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
-    var navigationBarButton: some View {
+    var loadNextButton: some View {
         Button(action: {
             viewModel.pagePublisher += 1
         }) {

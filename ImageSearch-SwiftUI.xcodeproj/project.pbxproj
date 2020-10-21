@@ -36,6 +36,7 @@
 		F3E8999F2540779F0087CB09 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8999E2540779F0087CB09 /* VisualEffectView.swift */; };
 		F3E899A4254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */; };
 		F3E899A9254080160087CB09 /* View+pinchToZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899A8254080160087CB09 /* View+pinchToZoom.swift */; };
+		F3E899B1254083FE0087CB09 /* PhotoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899B0254083FE0087CB09 /* PhotoWriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		F3E8999E2540779F0087CB09 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+UIBlurEffectStyle.swift"; sourceTree = "<group>"; };
 		F3E899A8254080160087CB09 /* View+pinchToZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+pinchToZoom.swift"; sourceTree = "<group>"; };
+		F3E899B0254083FE0087CB09 /* PhotoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWriter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				F39284DE253EDA1F0061C36F /* Structure */,
 				F39284C3253EB0400061C36F /* SearchModel.swift */,
 				F33EE4642540676600632A36 /* FavoritesModel.swift */,
+				F3E899B0254083FE0087CB09 /* PhotoWriter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				F39284B6253EA7560061C36F /* ResultData.swift in Sources */,
 				F3308C94253D79EB00551A4C /* CardView.swift in Sources */,
 				F3E8999F2540779F0087CB09 /* VisualEffectView.swift in Sources */,
+				F3E899B1254083FE0087CB09 /* PhotoWriter.swift in Sources */,
 				F33EE4462540545000632A36 /* ClassicCellView.swift in Sources */,
 				F3308C7C253D78CE00551A4C /* FavoritesView.swift in Sources */,
 				F33EE4652540676600632A36 /* FavoritesModel.swift in Sources */,

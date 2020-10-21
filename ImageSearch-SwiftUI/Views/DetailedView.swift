@@ -40,15 +40,17 @@ struct DetailedView: View {
         }
         .navigationTitle(viewModel.data.title)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: navigationBarButton)
+        .navigationBarItems(trailing: favoriteButton)
+        .navigationBarItems(trailing: savePhotoButton)
         .sheet(isPresented: $viewModel.showSafari, content: { () -> AnyView in
             guard let url = viewModel.data.docURL else { return AnyView(EmptyView()) }
             return AnyView(SafariView(url: url))
         })
+        .alert(isPresented: $viewModel.showPhotoAlert) { photoAlert }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    var navigationBarButton: some View {
+    var favoriteButton: some View {
         Button(action: { viewModel.toggleFavorite() }) {
             if viewModel.isFavorited {
                 Image(systemName: "star.fill")
@@ -56,6 +58,21 @@ struct DetailedView: View {
                 Image(systemName: "star")
             }
         }
+    }
+    
+    var savePhotoButton: some View {
+        Button(action: {
+            viewModel.savePhoto()
+        }) {
+            Image(systemName: "square.and.arrow.down")
+        }
+    }
+    
+    var photoAlert: Alert {
+        Alert(
+            title: Text("Saved photo!"),
+            dismissButton: .default(Text("Dismiss"))
+        )
     }
 }
 

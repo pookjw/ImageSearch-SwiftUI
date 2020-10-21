@@ -5,12 +5,13 @@
 //  Created by Jinwoo Kim on 10/21/20.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 final class DetailedViewModel: ObservableObject {
     var data: ResultData
     @Published var showSafari: Bool = false
+    @Published var showPhotoAlert: Bool = false
     @Published var isFavorited: Bool = false
     private var subscriptions = Set<AnyCancellable>()
     
@@ -34,5 +35,24 @@ final class DetailedViewModel: ObservableObject {
         isFavorited = FavoritesModel
             .shared
             .toggleFavorite(data)
+    }
+    
+    func savePhoto() {
+        Just(data.mainImage)
+            .compactMap { $0 }
+            .tryMap { try Data(contentsOf: $0) }
+            .map { UIImage(data: $0) }
+            .replaceError(with: nil)
+            .compactMap { $0 }
+            .flatMap {
+                PhotoWriter.save($0)
+            }
+            .sink(receiveCompletion: { [weak self] completion in
+                guard let self = self else { return }
+                if case .finished = completion {
+                    self.showPhotoAlert = true
+                }
+            }, receiveValue: { _ in })
+            .store(in: &subscriptions)
     }
 }

@@ -25,8 +25,10 @@ struct MainView: View {
     }
 }
 
-//struct HomeTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeTabView()
-//    }
-//}
+#if DEBUG
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
+#endif

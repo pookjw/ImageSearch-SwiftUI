@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CollectionView<Content, T>: View where Content: View {
     @State var eachWidth: CGFloat = 0
@@ -53,9 +54,3 @@ struct CollectionView<Content, T>: View where Content: View {
         return dataSource[idx]
     }
 }
-
-//struct CollectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CollectionView()
-//    }
-//}

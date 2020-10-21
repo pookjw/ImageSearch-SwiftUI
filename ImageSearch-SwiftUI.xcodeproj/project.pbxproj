@@ -33,6 +33,8 @@
 		F39284C4253EB0400061C36F /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39284C3253EB0400061C36F /* SearchModel.swift */; };
 		F39284CC253EC1530061C36F /* KakaoSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39284CB253EC1530061C36F /* KakaoSearchData.swift */; };
 		F3E89997254074250087CB09 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E89996254074250087CB09 /* FavoritesViewModel.swift */; };
+		F3E8999F2540779F0087CB09 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8999E2540779F0087CB09 /* VisualEffectView.swift */; };
+		F3E899A4254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		F39284C3253EB0400061C36F /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		F39284CB253EC1530061C36F /* KakaoSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSearchData.swift; sourceTree = "<group>"; };
 		F3E89996254074250087CB09 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		F3E8999E2540779F0087CB09 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+UIBlurEffectStyle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 			children = (
 				F33EE44A2540571500632A36 /* Text+OptionalString.swift */,
 				F33EE46C25406C4600632A36 /* UserDefaults+Objects.swift */,
+				F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			children = (
 				F39284B0253EA6440061C36F /* SearchBar.swift */,
 				F33EE450254058D200632A36 /* SafariView.swift */,
+				F3E8999E2540779F0087CB09 /* VisualEffectView.swift */,
 			);
 			path = Bridging_UIKit;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				F39284CC253EC1530061C36F /* KakaoSearchData.swift in Sources */,
 				F39284B6253EA7560061C36F /* ResultData.swift in Sources */,
 				F3308C94253D79EB00551A4C /* CardView.swift in Sources */,
+				F3E8999F2540779F0087CB09 /* VisualEffectView.swift in Sources */,
 				F33EE4462540545000632A36 /* ClassicCellView.swift in Sources */,
 				F3308C7C253D78CE00551A4C /* FavoritesView.swift in Sources */,
 				F33EE4652540676600632A36 /* FavoritesModel.swift in Sources */,
@@ -527,6 +534,7 @@
 				F31EFE9E253D977B00C53147 /* CollectionView.swift in Sources */,
 				F39284B1253EA6440061C36F /* SearchBar.swift in Sources */,
 				F33EE45625405B7B00632A36 /* DetailedViewModel.swift in Sources */,
+				F3E899A4254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift in Sources */,
 				F33EE46D25406C4600632A36 /* UserDefaults+Objects.swift in Sources */,
 				F33EE451254058D200632A36 /* SafariView.swift in Sources */,
 				F3308C89253D78FD00551A4C /* MainView.swift in Sources */,

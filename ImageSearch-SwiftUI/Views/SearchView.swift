@@ -25,7 +25,7 @@ struct SearchView: View {
         NavigationView {
             CollectionView(eachWidth: 180, dataSource: $viewModel.dataSource) { (data, idx) in
                     NavigationLink(
-                        destination: DetailedView(viewModel: .init(data: data))
+                        destination: DetailedView(data)
                     ) {
                         CardView(data)
                         .applyPresetModifier()
@@ -51,8 +51,10 @@ struct SearchView: View {
     }
 }
 
-//struct SearchView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchView()
-//    }
-//}
+#if DEBUG
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchView()
+    }
+}
+#endif

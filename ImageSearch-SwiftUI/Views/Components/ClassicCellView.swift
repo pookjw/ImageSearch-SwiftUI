@@ -30,6 +30,7 @@ struct ClassicCellView: View {
     }
 }
 
+#if DEBUG
 struct ClassicCellView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -48,3 +49,4 @@ struct ClassicCellView_Previews: PreviewProvider {
         }
     }
 }
+#endif

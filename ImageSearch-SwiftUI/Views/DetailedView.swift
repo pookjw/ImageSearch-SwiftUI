@@ -9,26 +9,33 @@ import SwiftUI
 import struct Kingfisher.KFImage
 
 struct DetailedView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: DetailedViewModel
-    @State var isFavorited: Bool = false
+    
+    init(_ data: ResultData) {
+        self.viewModel = .init(data)
+    }
     
     var body: some View {
-        VStack {
+        ZStack {
             KFImage(viewModel.data.mainImage)
                 .resizable()
                 .scaledToFit()
             
-            Button(action: { viewModel.showSafari = true }) {
-                ClassicCellView(
-                    image: Image(systemName: "safari"),
-                    title: Text(viewModel.data.title),
-                    description: Text(viewModel.data.docURL?.absoluteString)
-                )
+            VStack {
+                Spacer()
+                
+                Button(action: { viewModel.showSafari = true }) {
+                    ClassicCellView(
+                        image: Image(systemName: "safari"),
+                        title: Text(viewModel.data.title),
+                        description: Text(viewModel.data.docURL?.absoluteString)
+                    )
+                }
+                .padding()
+                .background(VisualEffectView(effect: UIBlurEffect(style: colorScheme.uiBlurEffectStyle())))
+                .disabled(viewModel.data.docURL == nil)
             }
-            .padding()
-            .disabled(viewModel.data.docURL == nil)
-            
-            Spacer()
         }
         .navigationTitle(viewModel.data.title)
         .navigationBarTitleDisplayMode(.inline)
@@ -37,15 +44,12 @@ struct DetailedView: View {
             guard let url = viewModel.data.docURL else { return AnyView(EmptyView()) }
             return AnyView(SafariView(url: url))
         })
-        .onReceive(FavoritesModel.shared.$favorites, perform: { _ in
-            isFavorited = FavoritesModel.shared.isFavorited(viewModel.data)
-        })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     var navigationBarButton: some View {
-        Button(action: { FavoritesModel.shared.toggleFavorite(viewModel.data) }) {
-            if isFavorited {
+        Button(action: { viewModel.toggleFavorite() }) {
+            if viewModel.isFavorited {
                 Image(systemName: "star.fill")
             } else {
                 Image(systemName: "star")
@@ -54,8 +58,10 @@ struct DetailedView: View {
     }
 }
 
-//struct DetailedView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailedView(data: .getSampleData())
-//    }
-//}
+#if DEBUG
+struct DetailedView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailedView(.getSampleData())
+    }
+}
+#endif

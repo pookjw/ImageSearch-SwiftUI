@@ -20,7 +20,7 @@ struct FavoritesView: View {
         NavigationView {
             CollectionView(eachWidth: 180, dataSource: $viewModel.dataSource) { (data, idx) in
                     NavigationLink(
-                        destination: DetailedView(viewModel: .init(data: data))
+                        destination: DetailedView(data)
                     ) {
                         CardView(data)
                         .applyPresetModifier()
@@ -33,8 +33,10 @@ struct FavoritesView: View {
     }
 }
 
+#if DEBUG
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
     }
 }
+#endif

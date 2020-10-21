@@ -89,26 +89,22 @@ struct CardView: View {
     }
 }
 
-//struct ClassicCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ClassicCardView(
-//                gradient: 3.5,
-//                topImage: Image("bear"),
-//                bottomText: Text("Bear")
-//            )
-//                .environment(\.colorScheme, .light)
-//                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
-//                .preferredColorScheme(.light)
-//
-//            ClassicCardView(
-//                gradient: 3.5,
-//                topImage: Image("bear"),
-//                bottomText: Text("Bear")
-//            )
-//                .environment(\.colorScheme, .dark)
-//                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
-//                .preferredColorScheme(.dark)
-//        }
-//    }
-//}
+#if DEBUG
+struct CardView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CardView(.getSampleData())
+                .applyPresetModifier()
+                .environment(\.colorScheme, .light)
+                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
+                .preferredColorScheme(.light)
+            
+            CardView(.getSampleData())
+                .applyPresetModifier()
+                .environment(\.colorScheme, .dark)
+                .previewLayout(PreviewLayout.fixed(width: 200, height: 250))
+                .preferredColorScheme(.dark)
+        }
+    }
+}
+#endif

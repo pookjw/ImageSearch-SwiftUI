@@ -13,13 +13,14 @@ struct CardView: View {
     @State private var gradient: CGFloat = 5
     var topImage: KFImage
     var bottomText: Text
-    @State var isFavorited: Bool = false
     private var data: ResultData
+    @State var showStar: Bool
     
-    init(_ data: ResultData) {
+    init(_ data: ResultData, showStar: Bool = false) {
         self.data = data
         self.topImage = KFImage(data.thumbnailImage)
         self.bottomText = Text(data.title)
+        self._showStar = .init(initialValue: showStar)
     }
     
     var body: some View {
@@ -37,7 +38,7 @@ struct CardView: View {
                     .background(getGradientView())
             }
             
-            if isFavorited {
+            if showStar {
                 VStack {
                     HStack {
                         Spacer()
@@ -49,9 +50,9 @@ struct CardView: View {
                 }
             }
         }
-        .onReceive(FavoritesModel.shared.$favorites, perform: { _ in
-            isFavorited = FavoritesModel.shared.isFavorited(data)
-        })
+//        .onReceive(FavoritesModel.shared.$favorites, perform: { _ in
+//            showStar = FavoritesModel.shared.isFavorited(data)
+//        })
     }
     
     public func gradient(_ grad: CGFloat) -> some View {

@@ -7,20 +7,26 @@
 
 import Foundation
 import Combine
+import WidgetKit
 
 final class FavoritesModel: ObservableObject {
     static let shared: FavoritesModel = .init()
     @Published var favorites: [ResultData]
+    var nonPublisherFavorites: [ResultData]
     private var subscriptions = Set<AnyCancellable>()
     private let key: String = "favorites"
+    private let userDefaults = UserDefaults(suiteName: "group.com.peter.ImageSearch-SwiftUI")!
     
     init() {
-        self.favorites = UserDefaults.standard.getObjects(forKey: key)
+        self.favorites = userDefaults.getObjects(forKey: key)
+        self.nonPublisherFavorites = []
         
         $favorites
             .sink(receiveValue: { [weak self] in
                 guard let self = self else { return }
-                UserDefaults.standard.setObjects($0, forKey: self.key)
+                self.userDefaults.setObjects($0, forKey: self.key)
+                self.nonPublisherFavorites = $0
+                WidgetCenter.shared.reloadTimelines(ofKind: "ImageSearch_SwiftUIWidgetExt")
             })
             .store(in: &subscriptions)
     }

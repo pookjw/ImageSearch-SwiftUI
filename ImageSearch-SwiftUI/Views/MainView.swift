@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var showSheet: Bool
     var body: some View {
         TabView {
             SearchView()
@@ -22,13 +23,16 @@ struct MainView: View {
                     Text("Favorites")
                 }
         }
+        .sheet(isPresented: $showSheet) {
+            DetailedView(FavoritesModel.shared.favorites.last ?? .getSampleData())
+        }
     }
 }
 
 #if DEBUG
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(showSheet: .constant(false))
     }
 }
 #endif

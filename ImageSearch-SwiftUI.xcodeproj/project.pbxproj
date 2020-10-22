@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		04E29623AB5560B346EB4405 /* Pods_ImageSearch_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5AF494C31C9A9BF0C98A27 /* Pods_ImageSearch_SwiftUITests.framework */; };
 		68DDD0FF4A7B4FA31F5936DE /* Pods_ImageSearch_SwiftUI_ImageSearch_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AC0F018CC24B93E3215536 /* Pods_ImageSearch_SwiftUI_ImageSearch_SwiftUIUITests.framework */; };
-		7CB1AAD9358BF271F1F28D2F /* Pods_ImageSearch_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9585B434904B58654A9C376 /* Pods_ImageSearch_SwiftUI.framework */; };
+		F30B60E525415DFF00B4A6B1 /* Pods_ImageSearch_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9585B434904B58654A9C376 /* Pods_ImageSearch_SwiftUI.framework */; };
+		F30B60EB25415E0500B4A6B1 /* Pods_ImageSearch_SwiftUIWidgetExtExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A95D7C0DA92A836FD4587F /* Pods_ImageSearch_SwiftUIWidgetExtExtension.framework */; };
+		F30B60EE25415E0600B4A6B1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B0F733254148C500A55459 /* SwiftUI.framework */; };
+		F30B60F025415E0800B4A6B1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B0F731254148C500A55459 /* WidgetKit.framework */; };
+		F30B61022541611700B4A6B1 /* UserDefaults+Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EE46C25406C4600632A36 /* UserDefaults+Objects.swift */; };
 		F31EFE9E253D977B00C53147 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EFE9D253D977B00C53147 /* CollectionView.swift */; };
 		F3308C43253D783E00551A4C /* ImageSearch_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3308C42253D783E00551A4C /* ImageSearch_SwiftUIApp.swift */; };
 		F3308C47253D783F00551A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3308C46253D783F00551A4C /* Assets.xcassets */; };
@@ -32,6 +36,15 @@
 		F39284B6253EA7560061C36F /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39284B5253EA7560061C36F /* ResultData.swift */; };
 		F39284C4253EB0400061C36F /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39284C3253EB0400061C36F /* SearchModel.swift */; };
 		F39284CC253EC1530061C36F /* KakaoSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39284CB253EC1530061C36F /* KakaoSearchData.swift */; };
+		F3B0F737254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0F736254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.swift */; };
+		F3B0F73A254148C600A55459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B0F739254148C600A55459 /* Assets.xcassets */; };
+		F3B0F73C254148C600A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F3B0F738254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition */; };
+		F3B0F73D254148C600A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F3B0F738254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition */; };
+		F3B0F740254148C600A55459 /* ImageSearch-SwiftUIWidgetExtExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F3B0F730254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F3B0F75425414A6300A55459 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EE4642540676600632A36 /* FavoritesModel.swift */; };
+		F3B0F75925414A7100A55459 /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39284B5253EA7560061C36F /* ResultData.swift */; };
+		F3B0F76325414D2600A55459 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0F74A2541499700A55459 /* WidgetView.swift */; };
+		F3B0F76C25414D3300A55459 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0F74A2541499700A55459 /* WidgetView.swift */; };
 		F3E89997254074250087CB09 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E89996254074250087CB09 /* FavoritesViewModel.swift */; };
 		F3E8999F2540779F0087CB09 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8999E2540779F0087CB09 /* VisualEffectView.swift */; };
 		F3E899A4254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */; };
@@ -40,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F30B61052541616500B4A6B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3308C37253D783E00551A4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3B0F72F254148C500A55459;
+			remoteInfo = "ImageSearch-SwiftUIWidgetExtExtension";
+		};
 		F3308C51253D783F00551A4C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F3308C37253D783E00551A4C /* Project object */;
@@ -54,9 +74,31 @@
 			remoteGlobalIDString = F3308C3E253D783E00551A4C;
 			remoteInfo = "ImageSearch-SwiftUI";
 		};
+		F3B0F73E254148C600A55459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3308C37253D783E00551A4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3B0F72F254148C500A55459;
+			remoteInfo = "ImageSearch-SwiftUIWidgetExtExtension";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F3B0F741254148C600A55459 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F3B0F740254148C600A55459 /* ImageSearch-SwiftUIWidgetExtExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		330BFB19E873AA0CFC9C3DA8 /* Pods-ImageSearch-SwiftUIWidgetExtExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUIWidgetExtExtension.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUIWidgetExtExtension/Pods-ImageSearch-SwiftUIWidgetExtExtension.release.xcconfig"; sourceTree = "<group>"; };
 		3A07A532071015E87EEB8C15 /* Pods-ImageSearch-SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUITests/Pods-ImageSearch-SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E137A61532D420987A07BC1 /* Pods-ImageSearch-SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUITests/Pods-ImageSearch-SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		582DDECE33F7A249495223C5 /* Pods-ImageSearch-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUI/Pods-ImageSearch-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +106,8 @@
 		8C5AF494C31C9A9BF0C98A27 /* Pods_ImageSearch_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C1745805610BA964777D0C /* Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests/Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C39AD268D287FE003A0880C3 /* Pods-ImageSearch-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUI/Pods-ImageSearch-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		C7A95D7C0DA92A836FD4587F /* Pods_ImageSearch_SwiftUIWidgetExtExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch_SwiftUIWidgetExtExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA5BDBC75EB7EBD2C57BBF2 /* Pods-ImageSearch-SwiftUIWidgetExtExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch-SwiftUIWidgetExtExtension.debug.xcconfig"; path = "Target Support Files/Pods-ImageSearch-SwiftUIWidgetExtExtension/Pods-ImageSearch-SwiftUIWidgetExtExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		D3AC0F018CC24B93E3215536 /* Pods_ImageSearch_SwiftUI_ImageSearch_SwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch_SwiftUI_ImageSearch_SwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9585B434904B58654A9C376 /* Pods_ImageSearch_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31EFE9D253D977B00C53147 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -94,6 +138,16 @@
 		F39284B5253EA7560061C36F /* ResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultData.swift; sourceTree = "<group>"; };
 		F39284C3253EB0400061C36F /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		F39284CB253EC1530061C36F /* KakaoSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSearchData.swift; sourceTree = "<group>"; };
+		F3B0F730254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ImageSearch-SwiftUIWidgetExtExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3B0F731254148C500A55459 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F3B0F733254148C500A55459 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F3B0F736254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearch_SwiftUIWidgetExt.swift; sourceTree = "<group>"; };
+		F3B0F738254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ImageSearch_SwiftUIWidgetExt.intentdefinition; sourceTree = "<group>"; };
+		F3B0F739254148C600A55459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3B0F73B254148C600A55459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3B0F74A2541499700A55459 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		F3B0F771254150B200A55459 /* ImageSearch-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ImageSearch-SwiftUI.entitlements"; sourceTree = "<group>"; };
+		F3B0F776254150D100A55459 /* ImageSearch-SwiftUIWidgetExtExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ImageSearch-SwiftUIWidgetExtExtension.entitlements"; sourceTree = "<group>"; };
 		F3E89996254074250087CB09 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		F3E8999E2540779F0087CB09 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		F3E899A3254078280087CB09 /* ColorScheme+UIBlurEffectStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorScheme+UIBlurEffectStyle.swift"; sourceTree = "<group>"; };
@@ -106,7 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB1AAD9358BF271F1F28D2F /* Pods_ImageSearch_SwiftUI.framework in Frameworks */,
+				F30B60E525415DFF00B4A6B1 /* Pods_ImageSearch_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +180,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3B0F72D254148C500A55459 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30B60EB25415E0500B4A6B1 /* Pods_ImageSearch_SwiftUIWidgetExtExtension.framework in Frameworks */,
+				F30B60EE25415E0600B4A6B1 /* SwiftUI.framework in Frameworks */,
+				F30B60F025415E0800B4A6B1 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +199,9 @@
 				D9585B434904B58654A9C376 /* Pods_ImageSearch_SwiftUI.framework */,
 				D3AC0F018CC24B93E3215536 /* Pods_ImageSearch_SwiftUI_ImageSearch_SwiftUIUITests.framework */,
 				8C5AF494C31C9A9BF0C98A27 /* Pods_ImageSearch_SwiftUITests.framework */,
+				F3B0F731254148C500A55459 /* WidgetKit.framework */,
+				F3B0F733254148C500A55459 /* SwiftUI.framework */,
+				C7A95D7C0DA92A836FD4587F /* Pods_ImageSearch_SwiftUIWidgetExtExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,9 +220,11 @@
 		F3308C36253D783E00551A4C = {
 			isa = PBXGroup;
 			children = (
+				F3B0F776254150D100A55459 /* ImageSearch-SwiftUIWidgetExtExtension.entitlements */,
 				F3308C41253D783E00551A4C /* ImageSearch-SwiftUI */,
 				F3308C53253D784000551A4C /* ImageSearch-SwiftUITests */,
 				F3308C5E253D784000551A4C /* ImageSearch-SwiftUIUITests */,
+				F3B0F735254148C500A55459 /* ImageSearch-SwiftUIWidgetExt */,
 				F3308C40253D783E00551A4C /* Products */,
 				FEB2E61ED5EFAC33494C210B /* Pods */,
 				8F1A663BBF267E7327BD7CAA /* Frameworks */,
@@ -168,6 +237,7 @@
 				F3308C3F253D783E00551A4C /* ImageSearch-SwiftUI.app */,
 				F3308C50253D783F00551A4C /* ImageSearch-SwiftUITests.xctest */,
 				F3308C5B253D784000551A4C /* ImageSearch-SwiftUIUITests.xctest */,
+				F3B0F730254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +245,7 @@
 		F3308C41253D783E00551A4C /* ImageSearch-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				F3B0F771254150B200A55459 /* ImageSearch-SwiftUI.entitlements */,
 				F31EFE91253D867400C53147 /* Extensions */,
 				F39284A7253E83870061C36F /* Models */,
 				F3308C98253D7A1400551A4C /* ViewModels */,
@@ -222,6 +293,7 @@
 				F3308C7B253D78CD00551A4C /* FavoritesView.swift */,
 				F33EE4342540504A00632A36 /* DetailedView.swift */,
 				F3308C88253D78FD00551A4C /* MainView.swift */,
+				F3B0F74A2541499700A55459 /* WidgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +348,17 @@
 			path = Structure;
 			sourceTree = "<group>";
 		};
+		F3B0F735254148C500A55459 /* ImageSearch-SwiftUIWidgetExt */ = {
+			isa = PBXGroup;
+			children = (
+				F3B0F736254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.swift */,
+				F3B0F738254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition */,
+				F3B0F739254148C600A55459 /* Assets.xcassets */,
+				F3B0F73B254148C600A55459 /* Info.plist */,
+			);
+			path = "ImageSearch-SwiftUIWidgetExt";
+			sourceTree = "<group>";
+		};
 		FEB2E61ED5EFAC33494C210B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +368,8 @@
 				887320FA80B8ADFEF1372801 /* Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests.release.xcconfig */,
 				3A07A532071015E87EEB8C15 /* Pods-ImageSearch-SwiftUITests.debug.xcconfig */,
 				3E137A61532D420987A07BC1 /* Pods-ImageSearch-SwiftUITests.release.xcconfig */,
+				CEA5BDBC75EB7EBD2C57BBF2 /* Pods-ImageSearch-SwiftUIWidgetExtExtension.debug.xcconfig */,
+				330BFB19E873AA0CFC9C3DA8 /* Pods-ImageSearch-SwiftUIWidgetExtExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -301,10 +386,13 @@
 				F3308C3C253D783E00551A4C /* Frameworks */,
 				F3308C3D253D783E00551A4C /* Resources */,
 				F2EB92D7A61CFD50A400AA59 /* [CP] Embed Pods Frameworks */,
+				F3B0F741254148C600A55459 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F3B0F73F254148C600A55459 /* PBXTargetDependency */,
+				F30B61062541616500B4A6B1 /* PBXTargetDependency */,
 			);
 			name = "ImageSearch-SwiftUI";
 			productName = "ImageSearch-SwiftUI";
@@ -350,13 +438,31 @@
 			productReference = F3308C5B253D784000551A4C /* ImageSearch-SwiftUIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F3B0F72F254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3B0F744254148C600A55459 /* Build configuration list for PBXNativeTarget "ImageSearch-SwiftUIWidgetExtExtension" */;
+			buildPhases = (
+				9C3A91F774C3406ACBBBB97A /* [CP] Check Pods Manifest.lock */,
+				F3B0F72C254148C500A55459 /* Sources */,
+				F3B0F72D254148C500A55459 /* Frameworks */,
+				F3B0F72E254148C500A55459 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ImageSearch-SwiftUIWidgetExtExtension";
+			productName = "ImageSearch-SwiftUIWidgetExtExtension";
+			productReference = F3B0F730254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F3308C37253D783E00551A4C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					F3308C3E253D783E00551A4C = {
@@ -369,6 +475,9 @@
 					F3308C5A253D784000551A4C = {
 						CreatedOnToolsVersion = 12.2;
 						TestTargetID = F3308C3E253D783E00551A4C;
+					};
+					F3B0F72F254148C500A55459 = {
+						CreatedOnToolsVersion = 12.1;
 					};
 				};
 			};
@@ -388,6 +497,7 @@
 				F3308C3E253D783E00551A4C /* ImageSearch-SwiftUI */,
 				F3308C4F253D783F00551A4C /* ImageSearch-SwiftUITests */,
 				F3308C5A253D784000551A4C /* ImageSearch-SwiftUIUITests */,
+				F3B0F72F254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -413,6 +523,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3B0F72E254148C500A55459 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B0F73A254148C600A55459 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +596,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests/Pods-ImageSearch-SwiftUI-ImageSearch-SwiftUIUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C3A91F774C3406ACBBBB97A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageSearch-SwiftUIWidgetExtExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9617903FA06CF9EECCB67D9 /* [CP] Check Pods Manifest.lock */ = {
@@ -548,7 +688,9 @@
 				F3308C89253D78FD00551A4C /* MainView.swift in Sources */,
 				F33EE44B2540571500632A36 /* Text+OptionalString.swift in Sources */,
 				F3308C43253D783E00551A4C /* ImageSearch_SwiftUIApp.swift in Sources */,
+				F3B0F73D254148C600A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition in Sources */,
 				F3E89997254074250087CB09 /* FavoritesViewModel.swift in Sources */,
+				F3B0F76325414D2600A55459 /* WidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,9 +710,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3B0F72C254148C500A55459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B0F76C25414D3300A55459 /* WidgetView.swift in Sources */,
+				F3B0F75925414A7100A55459 /* ResultData.swift in Sources */,
+				F3B0F73C254148C600A55459 /* ImageSearch_SwiftUIWidgetExt.intentdefinition in Sources */,
+				F3B0F737254148C500A55459 /* ImageSearch_SwiftUIWidgetExt.swift in Sources */,
+				F3B0F75425414A6300A55459 /* FavoritesModel.swift in Sources */,
+				F30B61022541611700B4A6B1 /* UserDefaults+Objects.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F30B61062541616500B4A6B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3B0F72F254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension */;
+			targetProxy = F30B61052541616500B4A6B1 /* PBXContainerItemProxy */;
+		};
 		F3308C52253D783F00551A4C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F3308C3E253D783E00551A4C /* ImageSearch-SwiftUI */;
@@ -580,6 +740,11 @@
 			isa = PBXTargetDependency;
 			target = F3308C3E253D783E00551A4C /* ImageSearch-SwiftUI */;
 			targetProxy = F3308C5C253D784000551A4C /* PBXContainerItemProxy */;
+		};
+		F3B0F73F254148C600A55459 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3B0F72F254148C500A55459 /* ImageSearch-SwiftUIWidgetExtExtension */;
+			targetProxy = F3B0F73E254148C600A55459 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -704,14 +869,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 582DDECE33F7A249495223C5 /* Pods-ImageSearch-SwiftUI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ImageSearch-SwiftUI/ImageSearch-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageSearch-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageSearch-SwiftUI/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -727,14 +894,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C39AD268D287FE003A0880C3 /* Pods-ImageSearch-SwiftUI.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ImageSearch-SwiftUI/ImageSearch-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageSearch-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageSearch-SwiftUI/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -834,6 +1003,52 @@
 			};
 			name = Release;
 		};
+		F3B0F742254148C600A55459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEA5BDBC75EB7EBD2C57BBF2 /* Pods-ImageSearch-SwiftUIWidgetExtExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "ImageSearch-SwiftUIWidgetExtExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P53D29U9LJ;
+				INFOPLIST_FILE = "ImageSearch-SwiftUIWidgetExt/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.ImageSearch-SwiftUI.ImageSearch-SwiftUIWidgetExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3B0F743254148C600A55459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 330BFB19E873AA0CFC9C3DA8 /* Pods-ImageSearch-SwiftUIWidgetExtExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "ImageSearch-SwiftUIWidgetExtExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P53D29U9LJ;
+				INFOPLIST_FILE = "ImageSearch-SwiftUIWidgetExt/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.ImageSearch-SwiftUI.ImageSearch-SwiftUIWidgetExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -869,6 +1084,15 @@
 			buildConfigurations = (
 				F3308C6B253D784000551A4C /* Debug */,
 				F3308C6C253D784000551A4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3B0F744254148C600A55459 /* Build configuration list for PBXNativeTarget "ImageSearch-SwiftUIWidgetExtExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3B0F742254148C600A55459 /* Debug */,
+				F3B0F743254148C600A55459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

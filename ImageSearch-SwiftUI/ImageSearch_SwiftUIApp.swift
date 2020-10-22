@@ -9,11 +9,15 @@ import SwiftUI
 
 @main
 struct ImageSearch_SwiftUIApp: App {
+    @State private var showSheet: Bool = false
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(showSheet: $showSheet)
                 .onAppear(perform: {
                     UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                })
+                .onOpenURL(perform: { _ in
+                    showSheet = true
                 })
         }
     }

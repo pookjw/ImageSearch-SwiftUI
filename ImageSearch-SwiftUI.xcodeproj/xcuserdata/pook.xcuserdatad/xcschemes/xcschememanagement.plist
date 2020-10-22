@@ -7,7 +7,35 @@
 		<key>ImageSearch-SwiftUI.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>7</integer>
+		</dict>
+		<key>ImageSearch-SwiftUIWidgetExtExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F3308C3E253D783E00551A4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3308C4F253D783F00551A4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3308C5A253D784000551A4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3B0F72F254148C500A55459</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

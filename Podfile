@@ -4,9 +4,9 @@
 target 'ImageSearch-SwiftUI' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  pod 'Kingfisher/SwiftUI'
 
   # Pods for ImageSearch-SwiftUI
-  pod 'Kingfisher/SwiftUI'
 
   target 'ImageSearch-SwiftUITests' do
     inherit! :search_paths
@@ -16,5 +16,14 @@ target 'ImageSearch-SwiftUI' do
   target 'ImageSearch-SwiftUIUITests' do
     # Pods for testing
   end
+
+end
+
+target 'ImageSearch-SwiftUIWidgetExtExtension' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'Kingfisher/SwiftUI'
+
+  # Pods for ImageSearch-SwiftUIWidgetExtExtension
 
 end

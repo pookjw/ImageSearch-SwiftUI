@@ -20,7 +20,7 @@ struct FavoritesView: View {
                 NavigationLink(
                     destination: DetailedView(data)
                 ) {
-                    CardView(data)
+                    CardView(data, showStar: false)
                         .applyPresetModifier()
                 }
             }

@@ -18,9 +18,7 @@
 
 - 즐겨찾기 지정하기
 
-## 할 일
-
-- [WidgetKit](https://developer.apple.com/documentation/widgetkit/) 적용
+- [WidgetKit](https://developer.apple.com/documentation/widgetkit/) 사용
 
 ## 다른 ImageSearch
 
@@ -37,3 +35,5 @@
 ![3](screenshots/3.png)
 
 ![4](screenshots/4.png)
+
+![5](screenshots/5.png)

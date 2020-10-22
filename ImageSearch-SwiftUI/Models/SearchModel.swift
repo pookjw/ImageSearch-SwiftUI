@@ -12,47 +12,41 @@ final class SearchModel {
     private var apiKey: String = "dff576e28ce434796a2329a6a2366d76"
     private var apiUrl: URL = URL(string: "https://dapi.kakao.com/v2/search/image")!
     
+    static let shared: SearchModel = .init()
+    
     enum Error: Swift.Error {
         case network
         case json
     }
     
-    func searchPublisher(_ inputPublisher: AnyPublisher<(String, Int), Never>) -> AnyPublisher<(Bool, [ResultData]), Error> {
-        inputPublisher
-            .flatMap { [weak self] (text: String, page: Int) -> AnyPublisher<KakaoSearchData, SearchModel.Error> in
-                guard let self = self else {
-                    return Fail(error: SearchModel.Error.network)
-                        .eraseToAnyPublisher()
-                }
-                
-                guard var components = URLComponents(url: self.apiUrl, resolvingAgainstBaseURL: true) else {
-                    return Fail(error: SearchModel.Error.network)
-                        .eraseToAnyPublisher()
-                }
-                
-                components.queryItems = [
-                    URLQueryItem(name: "query", value: text),
-                    URLQueryItem(name: "page", value: "\(page)")
-                ]
-                
-                guard let finalURL = components.url else {
-                    return Fail(error: SearchModel.Error.network)
-                        .eraseToAnyPublisher()
-                }
-                
-                var request = URLRequest(url: finalURL)
-                request.setValue("KakaoAK \(self.apiKey)", forHTTPHeaderField: "Authorization")
-                request.httpMethod = "GET"
-                
-                return URLSession
-                    .shared
-                    .dataTaskPublisher(for: request)
-                    .eraseToAnyPublisher()
-                    .map(\.data)
-                    .decode(type: KakaoSearchData.self, decoder: JSONDecoder())
-                    .mapError { _ in return Error.json }
-                    .eraseToAnyPublisher()
-            }
+    func searchPublisher(text: String, page: Int) -> AnyPublisher<(Bool, [ResultData]), Error> {
+        guard var components = URLComponents(url: self.apiUrl, resolvingAgainstBaseURL: true) else {
+            return Fail(error: SearchModel.Error.network)
+                .eraseToAnyPublisher()
+        }
+        
+        components.queryItems = [
+            URLQueryItem(name: "query", value: text),
+            URLQueryItem(name: "page", value: "\(page)")
+        ]
+        
+        guard let finalURL = components.url else {
+            return Fail(error: SearchModel.Error.network)
+                .eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: finalURL)
+        request.setValue("KakaoAK \(self.apiKey)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        return URLSession
+            .shared
+            .dataTaskPublisher(for: request)
+            .eraseToAnyPublisher()
+            .map(\.data)
+            .decode(type: KakaoSearchData.self, decoder: JSONDecoder())
+            .mapError { _ in return Error.json }
+            .eraseToAnyPublisher()
             .map { resultData -> (Bool, [ResultData]) in
                 let data = resultData
                     .documents

@@ -18,12 +18,10 @@ final class SearchViewModel: ObservableObject {
         self.bind()
     }
     
-    private var searchModel = SearchModel()
-    
     private func bind() {
         var willResetDataSource: Bool = false
         
-        let inputPublisher = Publishers.CombineLatest($textPublisher, $pagePublisher)
+        Publishers.CombineLatest($textPublisher, $pagePublisher)
             .eraseToAnyPublisher()
             .filter { $0.0 != "" && $0.1 > 0 }
             .removeDuplicates { [weak self] old, new in
@@ -39,12 +37,9 @@ final class SearchViewModel: ObservableObject {
                 return false
             }
             .eraseToAnyPublisher()
-        
-        let resultPublisher = searchModel.searchPublisher(inputPublisher)
+            .flatMap { SearchModel.shared.searchPublisher(text: $0, page: $1) }
             .replaceError(with: (enabledNextPage, dataSource))
             .filter { _, data in !data.isEmpty }
-        
-        resultPublisher
             .receive(on: DispatchQueue.main)
             .map { [weak self] (enabled, data) -> [ResultData] in
                 guard let self = self else { return data }
@@ -56,9 +51,5 @@ final class SearchViewModel: ObservableObject {
                 return data
             }
             .assign(to: &$dataSource)
-        
-        //        resultPublisher
-        //            .map(\.0)
-        //            .assign(to: &$enabledNextPage)
     }
 }

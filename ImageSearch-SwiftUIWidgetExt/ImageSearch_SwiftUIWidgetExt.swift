@@ -14,7 +14,7 @@ struct Provider: IntentTimelineProvider {
         FavoritesEntry(
             date: Date(),
             configuration: ConfigurationIntent(),
-            favorites: [.getSampleData(), .getSampleData()]
+            favorites: [.getSampleData()]
         )
     }
 
@@ -66,9 +66,17 @@ struct ImageSearch_SwiftUIWidgetExt: Widget {
     }
 }
 
-//struct ImageSearch_SwiftUIWidgetExt_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageSearch_SwiftUIWidgetExtEntryView(entry: FavoritesEntry(date: Date(), configuration: ConfigurationIntent()))
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
-//    }
-//}
+#if DEBUG
+struct ImageSearch_SwiftUIWidgetExt_Previews: PreviewProvider {
+    static var previews: some View {
+        ImageSearch_SwiftUIWidgetExtEntryView(
+            entry: FavoritesEntry(
+                date: Date(),
+                configuration: ConfigurationIntent(),
+                favorites: [.getSampleData()]
+            )
+        )
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
+#endif

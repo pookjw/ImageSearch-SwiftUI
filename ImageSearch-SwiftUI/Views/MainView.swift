@@ -24,8 +24,16 @@ struct MainView: View {
                 }
         }
         .sheet(isPresented: $showSheet) {
-            DetailedView(FavoritesModel.shared.favorites.last ?? .getSampleData())
+            NavigationView { DetailedView(FavoritesModel.shared.favorites.last ?? .getSampleData())
+                    .navigationBarItems(trailing: dismissSheetButton)
+            }
         }
+    }
+    
+    var dismissSheetButton: some View {
+        Button(action: { showSheet = false }, label: {
+            Text("Done")
+        })
     }
 }
 

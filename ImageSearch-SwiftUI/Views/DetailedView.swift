@@ -50,7 +50,7 @@ struct DetailedView: View {
     }
     
     var favoriteButton: some View {
-        Button(action: { viewModel.toggleFavorite() }) {
+        Button(action: { viewModel.toggleFavorite.send() }) {
             if viewModel.isFavorited {
                 Image(systemName: "star.fill")
             } else {
@@ -61,7 +61,7 @@ struct DetailedView: View {
     
     var savePhotoButton: some View {
         Button(action: {
-            viewModel.savePhoto()
+            viewModel.savePhoto.send()
         }) {
             Image(systemName: "square.and.arrow.down")
         }

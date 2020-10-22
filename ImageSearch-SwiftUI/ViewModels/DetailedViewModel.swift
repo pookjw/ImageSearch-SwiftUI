@@ -13,6 +13,8 @@ final class DetailedViewModel: ObservableObject {
     @Published var showSafari: Bool = false
     @Published var showPhotoAlert: Bool = false
     @Published var isFavorited: Bool = false
+    var savePhoto: PassthroughSubject<Void, Never> = .init()
+    var toggleFavorite: PassthroughSubject<Void, Never> = .init()
     private var subscriptions = Set<AnyCancellable>()
     
     init(_ data: ResultData) {
@@ -28,24 +30,18 @@ final class DetailedViewModel: ObservableObject {
                     .isFavorited(self.data)
             })
             .store(in: &subscriptions)
-    }
-    
-    func toggleFavorite() {
-        // 원래 `isFavorited = `를 안 적어도 isFavorited이 변경이 돼야 하는데... 버그인지 안 바뀌어서 적어줌...
-        isFavorited = FavoritesModel
-            .shared
-            .toggleFavorite(data)
-    }
-    
-    func savePhoto() {
-        Just(data.mainImage)
-            .compactMap { $0 }
-            .tryMap { try Data(contentsOf: $0) }
-            .map { UIImage(data: $0) }
-            .replaceError(with: nil)
-            .compactMap { $0 }
-            .flatMap {
-                PhotoWriter.save($0)
+        
+        savePhoto
+            .flatMap { _ in
+                Just(data.mainImage)
+                    .compactMap { $0 }
+                    .tryMap { try Data(contentsOf: $0) }
+                    .map { UIImage(data: $0) }
+                    .replaceError(with: nil)
+                    .compactMap { $0 }
+                    .flatMap {
+                        PhotoWriter.save($0)
+                    }
             }
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
@@ -53,6 +49,15 @@ final class DetailedViewModel: ObservableObject {
                     self.showPhotoAlert = true
                 }
             }, receiveValue: { _ in })
+            .store(in: &subscriptions)
+        
+        toggleFavorite
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.isFavorited = FavoritesModel
+                    .shared
+                    .toggleFavorite(self.data)
+            }
             .store(in: &subscriptions)
     }
 }
